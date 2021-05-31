@@ -1,4 +1,6 @@
-package com.example.kotlinrecyclerview.models
+package com.example.kotlinrecyclerview
+
+import com.example.kotlinrecyclerview.models.BlogPost
 
 class DataSource {
     companion object {
