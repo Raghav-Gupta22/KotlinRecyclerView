@@ -1,11 +1,11 @@
 package com.example.kotlinrecyclerview
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.kotlinrecyclerview.databinding.ListItemBinding
 import com.example.kotlinrecyclerview.models.BlogPost
 
 class BlogRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -16,8 +16,7 @@ class BlogRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return BlogViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        )
+            ListItemBinding.inflate(LayoutInflater.from(parent.context)));
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -40,12 +39,12 @@ class BlogRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class BlogViewHolder
     constructor(
-        itemView: View
-    ) : RecyclerView.ViewHolder(itemView) {
+        itemView: ListItemBinding
+    ) : RecyclerView.ViewHolder(itemView.root) {
 
-        val blog_image = itemView.blog_image
-        val blog_title = itemView.blog_title
-        val blog_author = itemView.blog_author
+        val blog_image = itemView.blogImage
+        val blog_title = itemView.blogTitle
+        val blog_author = itemView.blogAuthor
 
         fun bind(blogPost: BlogPost) {
 
